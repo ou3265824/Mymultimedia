@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
@@ -20,7 +21,7 @@ public class HttpLoader {
     private Retrofit retrofit;
     private static HttpLoader httpLoader;
     private static int OVER_TIME=30000;
-    private static String BASE_URL="http://192.168.198.21:8081/insurance/client/";
+    private static String BASE_URL="https://api.bmob.cn/";
 
     private HttpLoader() {
         if(client==null)
@@ -52,9 +53,11 @@ public class HttpLoader {
     }
 
     private Retrofit getRetrofit() {
-        return new Retrofit.Builder().baseUrl(BASE_URL).client(client)
+        return new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
-//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
     }
 

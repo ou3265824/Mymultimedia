@@ -16,8 +16,8 @@ import android.widget.LinearLayout;
 import com.olq.framework.R;
 import com.olq.framework.utils.ToastUtil;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
+
 
 /**
  * Created by Administrator on 2016/5/17.
@@ -36,12 +36,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         BaseApplication.getInstance().addActivity(this);
         BaseApplication.getInstance().setActivity(this);
         setContentView(getLayout());
         ButterKnife.bind(this);
         getonCreate();
+
     }
 
 

@@ -1,7 +1,7 @@
 package com.olq.multimedias.ui.home;
 
 import com.olq.multimedias.R;
-import com.olq.multimedias.base.InitActivity;
+import com.olq.multimedias.ui.base.InitActivity;
 
 public class GuidanceActivity extends InitActivity {
 

@@ -23,8 +23,8 @@ public class ItemNativeVideo implements ItemViewDelegate<NativeVideo>{
     @Override
     public void convert(ViewHolder holder, NativeVideo nativeVideo, int position) {
         if(position!=0&&position!=1){
-            holder.setText(R.id.tv_native_name,nativeVideo.getDisplayName());
-            holder.setImageBitmap(R.id.iv_native_image,nativeVideo.getThumbnail());
+//            holder.setText(R.id.tv_native_name,nativeVideo.getDisplayName());
+//            holder.setImageBitmap(R.id.iv_native_image,nativeVideo.getThumbnail());
 
         }
 

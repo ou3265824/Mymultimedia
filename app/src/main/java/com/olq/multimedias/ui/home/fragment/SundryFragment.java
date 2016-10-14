@@ -1,7 +1,7 @@
 package com.olq.multimedias.ui.home.fragment;
 
 import com.olq.multimedias.R;
-import com.olq.multimedias.base.InitFragment;
+import com.olq.multimedias.ui.base.InitFragment;
 
 /**
  * Created by Administrator on 2016/9/29 0029.

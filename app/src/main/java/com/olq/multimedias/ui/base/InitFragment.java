@@ -1,4 +1,4 @@
-package com.olq.multimedias.base;
+package com.olq.multimedias.ui.base;
 
 
 import com.olq.framework.base.BaseFragment;

@@ -1,6 +1,8 @@
 package com.olq.framework.http.builder;
 
 
+import com.olq.framework.utils.L;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -20,7 +22,7 @@ public class LoggingInterceptor implements Interceptor {
         Request request = chain.request();
 //        L.log("url : ", request.url() + "");
         Response response = chain.proceed(request);
-//        L.log("数据：",response.body().string());
+        L.log("数据：",response.body().string());
         return response;
     }
 }

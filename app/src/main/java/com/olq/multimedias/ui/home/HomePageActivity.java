@@ -1,5 +1,6 @@
 package com.olq.multimedias.ui.home;
 
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -10,17 +11,22 @@ import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.olq.multimedias.R;
-import com.olq.multimedias.base.InitActivity;
+import com.olq.multimedias.ui.base.InitActivity;
 import com.olq.multimedias.ui.home.adapter.HomePagerAdapter;
 import com.olq.multimedias.ui.home.fragment.SundryFragment;
 import com.olq.multimedias.ui.home.fragment.VideoFragment;
+import com.olq.multimedias.ui.user.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 public class HomePageActivity extends InitActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,9 +42,9 @@ public class HomePageActivity extends InitActivity
     @Bind(R.id.rb_home_)
     AppCompatRadioButton rbHome;
     @Bind(R.id.nav_view)
-    NavigationView navView;
+    NavigationView navigationView;
     @Bind(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
+    DrawerLayout drawer;
     private List<Fragment> fragments;
 
     @Override
@@ -49,20 +55,25 @@ public class HomePageActivity extends InitActivity
     @Override
     protected void getonCreate() {
         init();
-
-
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headView=navigationView.getHeaderView(0);
+        ImageView iv_home_head= (ImageView) headView.findViewById(R.id.iv_home_head);
+        iv_home_head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(LoginActivity.class,null,false);
+            }
+        });
     }
 
 
@@ -72,7 +83,7 @@ public class HomePageActivity extends InitActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            onExit();
         }
     }
 
@@ -160,5 +171,11 @@ public class HomePageActivity extends InitActivity
         });
 
     }
+
+
+//    @OnClick(R.id.iv_home_head)
+//    public void onHead(){
+//        startActivity(LoginActivity.class,null,false);
+//    }
 
 }

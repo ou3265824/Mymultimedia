@@ -1,17 +1,14 @@
 package com.olq.multimedias.ui.home.fragment;
 
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -19,7 +16,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.olq.framework.utils.L;
 import com.olq.framework.utils.ToastUtil;
 import com.olq.multimedias.R;
-import com.olq.multimedias.base.InitFragment;
+import com.olq.multimedias.ui.base.InitFragment;
 import com.olq.multimedias.bean.NativeVideo;
 import com.olq.multimedias.ui.home.adapter.video.VideoAdapter;
 import com.olq.multimedias.ui.video.VideoPlayActivity;
@@ -85,7 +82,7 @@ public class VideoFragment extends InitFragment {
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 L.log("position:"+position);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("video", nativeVideos.get(position-1));
+                bundle.putParcelable("video", (Parcelable) nativeVideos.get(position-1));
                 startActivity(VideoPlayActivity.class, bundle);
             }
 
@@ -177,15 +174,15 @@ public class VideoFragment extends InitFragment {
 
                 String size = getSize(sizes);
                 NativeVideo video = new NativeVideo();
-                video.setId(id);
-                video.setTitle(title);
-                video.setAlbum(album);
-                video.setArtist(artist);
-                video.setDisplayName(displayName);
-                video.setMimeType(mimeType);
-                video.setDuration(duration);
-                video.setThumbnail(thumbnail);
-                video.setPath(path);
+//                video.setId(id);
+//                video.setTitle(title);
+//                video.setAlbum(album);
+//                video.setArtist(artist);
+//                video.setDisplayName(displayName);
+//                video.setMimeType(mimeType);
+//                video.setDuration(duration);
+//                video.setThumbnail(thumbnail);
+//                video.setPath(path);
                 videos.add(video);
             }
             cursor.close();

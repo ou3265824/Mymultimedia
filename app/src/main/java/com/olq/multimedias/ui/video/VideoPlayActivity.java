@@ -1,29 +1,18 @@
 package com.olq.multimedias.ui.video;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.os.Environment;
 import android.os.PowerManager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.dou361.ijkplayer.bean.VideoijkBean;
-import com.dou361.ijkplayer.listener.OnShowThumbnailListener;
-import com.dou361.ijkplayer.widget.PlayStateParams;
 import com.dou361.ijkplayer.widget.PlayerView;
 import com.olq.framework.utils.L;
 import com.olq.multimedias.R;
-import com.olq.multimedias.base.InitActivity;
+import com.olq.multimedias.ui.base.InitActivity;
 import com.olq.multimedias.bean.NativeVideo;
 import com.olq.multimedias.utlis.MediaUtils;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class VideoPlayActivity extends InitActivity {
@@ -53,38 +42,30 @@ public class VideoPlayActivity extends InitActivity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "liveTAG");
         wakeLock.acquire();
-        String url = nativeVideo.getPath();
-        player = new PlayerView(this)
-                .setTitle(nativeVideo.getDisplayName())
-                .setScaleType(PlayStateParams.fitparent)
-                .hideMenu(true)
-                .forbidTouch(false)
-                .setForbidHideControlPanl(true)
-                .showThumbnail(new OnShowThumbnailListener() {
-                    @Override
-                    public void onShowThumbnail(ImageView ivThumbnail) {
-//                        Glide.with(mContext)
-//                                .load("http://pic2.nipic.com/20090413/406638_125424003_2.jpg")
-//                                .placeholder(R.color.cl_default)
-//                                .error(R.color.cl_error)
-//                                .into(ivThumbnail);
-                        ivThumbnail.setImageBitmap(nativeVideo.getThumbnail());
-                    }
-                })
-                .setPlaySource(url)
-                .startPlay();
+//        String url = nativeVideo.getPath();
+//        player = new PlayerView(this)
+//                .setTitle(nativeVideo.getDisplayName())
+//                .setScaleType(PlayStateParams.fitparent)
+//                .hideMenu(true)
+//                .forbidTouch(false)
+//                .setForbidHideControlPanl(true)
+//                .showThumbnail(new OnShowThumbnailListener() {
+//                    @Override
+//                    public void onShowThumbnail(ImageView ivThumbnail) {
+////                        Glide.with(mContext)
+////                                .load("http://pic2.nipic.com/20090413/406638_125424003_2.jpg")
+////                                .placeholder(R.color.cl_default)
+////                                .error(R.color.cl_error)
+////                                .into(ivThumbnail);
+//                        ivThumbnail.setImageBitmap(nativeVideo.getThumbnail());
+//                    }
+//                })
+//                .setPlaySource(url)
+//                .startPlay();
     }
 
 
-    /**
-     * 播放本地视频
-     */
 
-    private String getLocalVideoPath(String name) {
-        String sdCard = Environment.getExternalStorageDirectory().getPath();
-        String uri = sdCard + File.separator + name;
-        return uri;
-    }
 
     @Override
     protected void onPause() {

@@ -1,17 +1,12 @@
 package com.olq.multimedias.ui.home;
 
 import android.os.Handler;
-import android.support.v7.widget.LinearLayoutManager;
 import android.widget.TextView;
 
-import com.jcodecraeer.xrecyclerview.ProgressStyle;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.olq.framework.utils.SpfUtils;
 import com.olq.multimedias.R;
 import com.olq.multimedias.SpConfig;
-import com.olq.multimedias.base.InitActivity;
-
-import java.util.ArrayList;
+import com.olq.multimedias.ui.base.InitActivity;
 
 import butterknife.Bind;
 
