@@ -18,70 +18,70 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-	private static final int REQUEST_CODE_SCAN = 0x0000;
+    private static final int REQUEST_CODE_SCAN = 0x0000;
 
-	private static final String DECODED_CONTENT_KEY = "codedContent";
-	private static final String DECODED_BITMAP_KEY = "codedBitmap";
+    private static final String DECODED_CONTENT_KEY = "codedContent";
+    private static final String DECODED_BITMAP_KEY = "codedBitmap";
 
-	TextView qrCoded;
-	ImageView qrCodeImage;
-	Button creator, scanner;
-	EditText qrCodeUrl;
+    TextView qrCoded;
+    ImageView qrCodeImage;
+    Button creator, scanner;
+    EditText qrCodeUrl;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-		qrCoded = (TextView) findViewById(R.id.ECoder_title);
-		qrCodeImage = (ImageView) findViewById(R.id.ECoder_image);
-		creator = (Button) findViewById(R.id.ECoder_creator);
-		scanner = (Button) findViewById(R.id.ECoder_scaning);
-		qrCodeUrl = (EditText) findViewById(R.id.ECoder_input);
+        qrCoded = (TextView) findViewById(R.id.ECoder_title);
+        qrCodeImage = (ImageView) findViewById(R.id.ECoder_image);
+        creator = (Button) findViewById(R.id.ECoder_creator);
+        scanner = (Button) findViewById(R.id.ECoder_scaning);
+        qrCodeUrl = (EditText) findViewById(R.id.ECoder_input);
 
-		creator.setOnClickListener(new OnClickListener() {
+        creator.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View arg0) {
+            @Override
+            public void onClick(View arg0) {
 
-				String url = qrCodeUrl.getText().toString();
+                String url = qrCodeUrl.getText().toString();
 //				try {
 //					Bitmap bitmap = CodeCreator.createQRCode(url);
-					Bitmap bitmap = CodeCreator.createQRCode(url, 350, 350,BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-					qrCodeImage.setImageBitmap(bitmap);
+                Bitmap bitmap = CodeCreator.createQRCode(url, 350, 350, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+                qrCodeImage.setImageBitmap(bitmap);
 //				} catch (WriterException e) {
 //					e.printStackTrace();
 //				}
 
-			}
-		});
+            }
+        });
 
-		scanner.setOnClickListener(new OnClickListener() {
+        scanner.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(MainActivity.this,
-						CaptureActivity.class);
-				startActivityForResult(intent, REQUEST_CODE_SCAN);
-			}
-		});
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(MainActivity.this,
+                        CaptureActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_SCAN);
+            }
+        });
 
-	}
+    }
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		// 扫描二维码/条码回传
-		if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
-			if (data != null) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // 扫描二维码/条码回传
+        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
+            if (data != null) {
 
-				String content = data.getStringExtra(DECODED_CONTENT_KEY);
-				Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
+                String content = data.getStringExtra(DECODED_CONTENT_KEY);
+                Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
 
-				qrCoded.setText("解码结果： \n" + content);
-				qrCodeImage.setImageBitmap(bitmap);
-			}
-		}
-	}
+                qrCoded.setText("解码结果： \n" + content);
+                qrCodeImage.setImageBitmap(bitmap);
+            }
+        }
+    }
 }

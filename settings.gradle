@@ -1,1 +1,1 @@
-include ':app', ':framework', ':zxing'
+include ':app', ':framework', ':zxing', ':test', ':javatest'
