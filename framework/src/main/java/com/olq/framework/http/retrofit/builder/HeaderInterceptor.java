@@ -1,4 +1,4 @@
-package com.olq.framework.http.builder;
+package com.olq.framework.http.retrofit.builder;
 
 
 import java.io.IOException;

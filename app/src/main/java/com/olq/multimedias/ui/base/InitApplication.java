@@ -2,6 +2,7 @@ package com.olq.multimedias.ui.base;
 
 
 import com.olq.framework.base.BaseApplication;
+import com.olq.framework.http.okgo.OkgoLoader;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -17,6 +18,7 @@ public class InitApplication extends BaseApplication {
         instance = this;
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+        OkgoLoader.getInstace().init(this);
     }
 
     public static InitApplication getInstance() {

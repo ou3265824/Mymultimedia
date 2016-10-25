@@ -1,4 +1,4 @@
-package com.olq.multimedias.http;
+package com.olq.multimedias.http.retrofit;
 
 /**
  * Created by Administrator on 2016/10/8 0008.
@@ -12,6 +12,7 @@ public interface AppConfig {
     String USERS=VERSIONS+"users";
     //登录
     String LOGIN=VERSIONS+"login";
+
 
 
 }

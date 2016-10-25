@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mymultimedia</string>
+    <string name="app_name">图</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home_page">HomePageActivity</string>
 
@@ -21,4 +21,7 @@
         completions."
     </string>
     <string name="title_activity_register">Sign in</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

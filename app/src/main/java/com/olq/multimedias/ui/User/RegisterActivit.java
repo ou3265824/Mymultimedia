@@ -1,20 +1,18 @@
 package com.olq.multimedias.ui.user;
 
-import android.os.Bundle;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
-import com.olq.framework.http.HttpLoader;
+import com.olq.framework.http.retrofit.HttpLoader;
 import com.olq.framework.utils.L;
 import com.olq.multimedias.R;
 import com.olq.multimedias.bean.BaseBean;
 import com.olq.multimedias.bean.User;
-import com.olq.multimedias.http.AppConfig;
-import com.olq.multimedias.http.UserApi;
+import com.olq.multimedias.http.retrofit.AppConfig;
+import com.olq.multimedias.http.retrofit.UserApi;
 import com.olq.multimedias.ui.base.InitActivity;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;

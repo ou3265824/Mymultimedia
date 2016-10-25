@@ -1,4 +1,4 @@
-package com.olq.framework.http.backcall;
+package com.olq.framework.http.retrofit.callback;
 
 //import retrofit2.Call;
 //import retrofit2.Callback;

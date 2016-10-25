@@ -1,4 +1,4 @@
-package com.olq.multimedias.http;
+package com.olq.multimedias.http.retrofit;
 
 import com.olq.multimedias.bean.BaseBean;
 import com.olq.multimedias.bean.User;
@@ -6,7 +6,6 @@ import com.olq.multimedias.bean.User;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 

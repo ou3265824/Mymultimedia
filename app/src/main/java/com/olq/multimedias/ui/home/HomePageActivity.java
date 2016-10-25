@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import com.olq.multimedias.R;
 import com.olq.multimedias.ui.base.InitActivity;
 import com.olq.multimedias.ui.home.adapter.HomePagerAdapter;
+import com.olq.multimedias.ui.home.fragment.BelleReadFragment;
 import com.olq.multimedias.ui.home.fragment.SundryFragment;
 import com.olq.multimedias.ui.home.fragment.VideoFragment;
 import com.olq.multimedias.ui.user.LoginActivity;
@@ -139,7 +140,7 @@ public class HomePageActivity extends InitActivity
         if (fragments == null) {
             fragments = new ArrayList<>();
         }
-        fragments.add(new VideoFragment());
+        fragments.add(new BelleReadFragment());
         fragments.add(new SundryFragment());
         fragments.add(new SundryFragment());
         HomePagerAdapter homePagerAdapter=new HomePagerAdapter(getSupportFragmentManager(), fragments);
