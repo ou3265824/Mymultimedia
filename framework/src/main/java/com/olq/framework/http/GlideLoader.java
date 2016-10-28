@@ -9,20 +9,20 @@ import com.bumptech.glide.Glide;
 /**
  * Created by Administrator on 2016/5/16.
  */
-public class ImageLoader {
+public class GlideLoader {
 
-    private static ImageLoader imageManager;
+    private static GlideLoader imageManager;
     private Context mContext;
 
-    public ImageLoader(Context context) {
+    public GlideLoader(Context context) {
         this.mContext=context;
     }
 
-    public static ImageLoader getInstance(Context context){
+    public static GlideLoader getInstance(Context context){
         if(imageManager==null){
-            synchronized (ImageLoader.class){
+            synchronized (GlideLoader.class){
                 if(imageManager==null){
-                    imageManager=new ImageLoader(context);
+                    imageManager=new GlideLoader(context);
                 }
             }
         }

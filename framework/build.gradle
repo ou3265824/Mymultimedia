@@ -41,7 +41,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     //图片
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    //recyclerview上拉下拉
+//    //recyclerview上拉下拉
     compile 'com.jcodecraeer:xrecyclerview:1.2.7'
     //recyclerview，listview多布局适配器
     compile 'com.zhy:base-rvadapter:3.0.3'

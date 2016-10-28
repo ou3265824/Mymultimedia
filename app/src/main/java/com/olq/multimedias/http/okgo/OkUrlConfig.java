@@ -1,5 +1,7 @@
 package com.olq.multimedias.http.okgo;
 
+import static android.R.attr.id;
+
 /**
  * Created by Administrator on 2016/10/20 0020.
  */
@@ -15,7 +17,7 @@ public class OkUrlConfig {
      重要	http://www.tngou.net/api/memo/add	评论接口，需要用户认证
      重要	http://www.tngou.net/api/memo/comment	评论列表
      */
-    static String IMG_HTTP="http://tnfs.tngou.net/image";
+    public static String IMG_HTTP="http://tnfs.tngou.net/image";
     static String BASE_HTTP="http://www.tngou.net/";
     static String TNFS=BASE_HTTP+"tnfs/api/";
     static String API=BASE_HTTP+"api/";
@@ -53,6 +55,11 @@ public class OkUrlConfig {
     }
 
     public static String getNEWS(int id) {
-        return NEWS+"?id="+id;
+        return NEWS+"?classify="+id;
     }
+
+    public static String getLIST(int page,int id){
+        return LIST+"?page="+page+"&rows=20&id="+id;
+    }
+
 }

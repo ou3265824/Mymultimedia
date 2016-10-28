@@ -46,7 +46,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile project(':framework')
-    compile project(':zxing')
+
+//    compile project(':zxing')
 //    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
     
 
