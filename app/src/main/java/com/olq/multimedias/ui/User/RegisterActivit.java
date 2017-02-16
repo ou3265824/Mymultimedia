@@ -4,11 +4,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.olq.framework.http.retrofit.HttpLoader;
+import com.olq.framework.http.retrofit.callback.RxBackCall;
 import com.olq.framework.utils.L;
 import com.olq.multimedias.R;
 import com.olq.multimedias.bean.BaseBean;
 import com.olq.multimedias.bean.User;
 import com.olq.multimedias.http.retrofit.AppConfig;
+import com.olq.multimedias.http.retrofit.RetrofitManage;
 import com.olq.multimedias.http.retrofit.UserApi;
 import com.olq.multimedias.ui.base.InitActivity;
 
@@ -45,22 +47,38 @@ public class RegisterActivit extends InitActivity {
         User user=new User();
         user.setUsername(username.getText().toString());
         user.setPassword(password.getText().toString());
-        HttpLoader.getInstace().getCreate(UserApi.class).getUsers(user).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<BaseBean>() {
+        RetrofitManage.getIntance().getRegister(user, new RxBackCall<BaseBean>() {
             @Override
             public void onCompleted() {
-
+                L.log("onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-
+                L.log("onError"+e.toString());
             }
 
             @Override
             public void onNext(BaseBean baseBean) {
-
+                L.log("onNext"+baseBean.toString());
             }
         });
+//        HttpLoader.getInstace().getCreate(UserApi.class).getUsers(user).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<BaseBean>() {
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(BaseBean baseBean) {
+//
+//            }
+//        });
     }
 }
 

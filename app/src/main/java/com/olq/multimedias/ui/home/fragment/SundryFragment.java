@@ -4,7 +4,7 @@ import com.olq.multimedias.R;
 import com.olq.multimedias.ui.base.InitFragment;
 
 /**
- * Created by Administrator on 2016/9/29 0029.
+ * 杂的
  */
 public class SundryFragment extends InitFragment{
     @Override

@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +17,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.test.replace.ReplaceActivity;
+import com.example.test.replace.fragment.LoginFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private int[] imgs={R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
-    private ImageView imageView;
     private Button button;
     private ImageView[] imageViews;
 
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageView = (ImageView) findViewById(R.id.image);
+        ImageView imageView = (ImageView) findViewById(R.id.image);
         ImageView imageView2 = (ImageView) findViewById(R.id.image2);
         ImageView imageView3 = (ImageView) findViewById(R.id.image3);
         ImageView imageView4 = (ImageView) findViewById(R.id.image4);
@@ -37,18 +40,26 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"点击",Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(getApplicationContext(),"点击",Toast.LENGTH_LONG).show();
+//            startActivity(new Intent(getApplicationContext(), ReplaceActivity.class));
             }
         });
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), JsoupActivity.class));
+            }
+        });
+
 //        button = (Button) findViewById(R.id.button);
         imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Toast.makeText(getApplicationContext(),"点击",Toast.LENGTH_LONG).show();
-                button();
+//                button();
             }
         });
+
     }
 
     /**
@@ -151,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 }

@@ -28,7 +28,7 @@ import java.util.List;
 import butterknife.Bind;
 
 /**
- * Created by Administrator on 2016/9/28 0028.
+ * 视频
  */
 public class VideoFragment extends InitFragment {
 

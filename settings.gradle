@@ -1,1 +1,1 @@
-include ':app', ':framework', ':zxing', ':test', ':socket'
+include ':app', ':framework', ':zxing', ':test', ':socket', ':easeim'

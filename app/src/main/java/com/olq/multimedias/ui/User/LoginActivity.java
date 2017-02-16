@@ -6,8 +6,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.olq.framework.http.retrofit.HttpLoader;
+import com.olq.framework.http.retrofit.callback.RxBackCall;
+import com.olq.framework.utils.L;
 import com.olq.multimedias.R;
 import com.olq.multimedias.bean.BaseBean;
+import com.olq.multimedias.http.retrofit.RetrofitManage;
 import com.olq.multimedias.http.retrofit.UserApi;
 import com.olq.multimedias.ui.base.InitActivity;
 
@@ -47,22 +50,40 @@ public class LoginActivity extends InitActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login:
-                HttpLoader.getInstace().getCreate(UserApi.class).getLogin(username.getText().toString(),password.getText().toString()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<BaseBean>() {
+                String user=username.getText().toString();
+                String pass=password.getText().toString();
+                RetrofitManage.getIntance().getLogin(username.getText().toString(), password.getText().toString(), new RxBackCall<BaseBean>() {
                     @Override
                     public void onCompleted() {
-
+                        L.log("onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        L.log("onError"+e.toString());
                     }
 
                     @Override
                     public void onNext(BaseBean baseBean) {
-
+                        L.log("onNext"+baseBean.toString());
                     }
                 });
+//                HttpLoader.getInstace().getCreate(UserApi.class).getLogin(username.getText().toString(),password.getText().toString()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<BaseBean>() {
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(BaseBean baseBean) {
+//
+//                    }
+//                });
                 break;
             case R.id.register:
                 startActivity(RegisterActivit.class,null,false);
